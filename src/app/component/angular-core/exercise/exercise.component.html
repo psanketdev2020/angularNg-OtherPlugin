@@ -1,0 +1,62 @@
+<section>
+  <div class="container">
+    <h2 class="mb-3">UxTrendz Exercise</h2>
+    <h3 class="mb-3">Parent</h3>
+    <div class="row">
+      <div class="col-6">
+        <div class="card p-3">
+          <h4 class="mb-3 font-weight-bold">Users</h4>
+          <table>
+            <tr>
+              <th>User Name</th>
+              <th>Remove</th>
+            </tr>
+            <tr *ngFor="let user of users; index of i">
+              <td>{{ user }}</td>
+              <td>
+                <a href="javascript:void(0);" class="text-danger" (click)="removeUser(i)"
+                  >Removed</a
+                >
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card p-3">
+          <h4 class="mb-3 font-weight-bold">Admin</h4>
+          <table>
+            <tr>
+              <th>Admin Name</th>
+              <th>Remove</th>
+            </tr>
+            <tr *ngFor="let admin of admins; index of i">
+              <td>{{ admin }}</td>
+              <td>
+                <a href="javascript:void(0);" class="text-danger" (click)="removeAdmin(i)"
+                  >Removed</a
+                >
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <h3 class="my-3">Child</h3>
+    <hr />
+    <div class="row">
+      <div class="col-6">
+        <app-exercise-child
+          (inputValue)="addUser($event)"
+          [palceholderText]="'Create User'"
+        ></app-exercise-child>
+      </div>
+      <div class="col-6">
+        <app-exercise-child
+          (inputValue)="addAdmin($event)"
+          [palceholderText]="'Create Admin'"
+        ></app-exercise-child>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<section>
+    <div class="container">
+        <h3 class="my-3">ngx-scrollbar</h3>
+        <div class="d-flex justify-content-between">
+            <div>
+                <img src="../../../assets/images/pexels-photo-1097460.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="w-50 scrollBar">
+                <ng-scrollbar pointerEventsMethod="viewport || scrollbar">
+                    <span *ngFor="let number of numbers" class="number d-block">
+                        {{number}}
+                    </span>
+                </ng-scrollbar>
+            </div>
+        </div>
+<!-- 
+        <table class="mt-5">
+            <thead>
+                <tr>
+                    
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tables; let i = index">
+                    <td  id=menu{{i}}>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-info" (click)="showData($event)"> Show Tabel Data</button> -->
+    </div>
+</section>

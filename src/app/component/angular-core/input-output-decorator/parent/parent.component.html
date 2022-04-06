@@ -1,0 +1,49 @@
+<div class="container">
+  <h3 class="text-dar text-center mb-4">Input Output Concept</h3>
+
+  <div class="alert alert-white border alert-dismissible fade show d-flex" role="alert" *ngIf="addToCard">
+    <strong class="text-success">{{proSelect}}&nbsp;</strong>added in your cart
+   <button class="btn btn-info btn-sm ml-auto">checkout</button>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="card">
+        <img src="./assets/images/pexels-photo-1097460.jpeg" class="img-fluid" alt="">
+        <div class="card-body">
+          <h5 class="mb-2 text-secondary">Television</h5>
+          <button class="btn btn-info btn-sm" (click)="selectPro('Television')">Select TV</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card">
+        <img src="../../../../../assets/images/pexels-photo-5589857.jpeg" class="img-fluid" alt="">
+        <div class="card-body">
+          <h5 class="mb-2 text-secondary">Mobile</h5>
+          <button class="btn btn-info btn-sm" (click)="selectPro('Mobile')">Select Mobile</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card">
+        <img src="../../../../../assets/images/pexels-photo-3050781.jpeg" class="img-fluid" alt="">
+        <div class="card-body">
+          <h5 class="mb-2 text-secondary">Laptop</h5>
+          <button class="btn btn-info btn-sm" (click)="selectPro('Laptop')">Select Laptop</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card">
+        <img src="../../../../../assets/images/pexels-photo-5589908.jpeg" class="img-fluid" alt="">
+        <div class="card-body">
+          <h5 class="mb-2 text-secondary">Washing Machine</h5>
+          <button class="btn btn-info btn-sm" (click)="selectPro('Washing Machine')">Select Washing Machine</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-child [data]="proSelect" [productSelect]="selectProduct" (addToCartData)="addedInCart($event)"></app-child>
+</div>

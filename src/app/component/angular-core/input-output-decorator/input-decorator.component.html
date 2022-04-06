@@ -1,0 +1,26 @@
+<app-navigation-menu [show]="showNav" (hide)="hideNav($event)"></app-navigation-menu>
+
+<section class="pb-4">
+  <div class="container">
+
+    <div class="d-block d-lg-none d-flex justify-content-between align-items-center pt-3">
+      <figure (click)="displayNav()">
+        <img src="./assets/images/menu.svg" class="img-fluid" alt="hamburger">
+      </figure>
+
+      <figure>
+        <img src="./assets/images/shopping-cart.svg" class="img-fluid" alt="">
+      </figure>
+    </div>
+
+    <div class="page-details">
+      <h3 class="my-3">Input/Output Decorator</h3>
+      <small>This event trigger from parent component: </small>
+      <button class="btn btn-danger px-3 btn-sm mr-3" (click)="decrment()">-</button>
+      <button class="btn btn-danger px-3 btn-sm" (click)="increment()">+</button>
+      <app-child [count]="counter" (countChanged)="countChangedHandler($event)"></app-child>
+    </div>
+  </div>
+</section>
+
+<app-parent></app-parent>

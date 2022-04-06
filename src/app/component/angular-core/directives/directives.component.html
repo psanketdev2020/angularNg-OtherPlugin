@@ -1,0 +1,177 @@
+<section class="pb-4">
+  <div class="container">
+    <h3 class="my-3">Angular Directiives</h3>
+    <ul>
+      <li>
+        <h4 class="mb-3 border-bottom ">ngFor</h4>
+        <div class="row">
+          <div class="col">
+            <h6>Movies Title</h6>
+            <ul>
+              <li *ngFor="let movie of movies"><i>{{movie.title}}</i></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Movies Title With Index</h6>
+            <ul>
+              <li *ngFor="let movie of movies; index as i"><b>{{i}}</b><i> {{movie.title}}</i></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Show Even</h6>
+            <ul>
+              <li *ngFor="let movie of movies; even as e"><b>{{e}}</b><i> {{movie.title}}</i></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Show Odd</h6>
+            <ul>
+              <li *ngFor="let movie of movies; odd as o"><b>{{o}}</b><i> {{movie.title}}</i></li>
+            </ul>
+          </div>
+        </div>
+        <div class="table-responsive mt-4">
+          <table class="table table-bordered table-sm ">
+            <thead class="thead-dark">
+              <th>Index</th>
+              <th>Title</th>
+              <th>Director</th>
+              <th>Cast</th>
+              <th>Release Date</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movie of movies, let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{movie.title}}</td>
+                <td>{{movie.director}}</td>
+                <td>{{movie.cast}}</td>
+                <td>{{movie.releaseDate}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </li>
+      <hr>
+      <li>
+        <h4 class="mb-3 border-bottom ">ngIf</h4>
+        <div class="row">
+          <div class="col">
+            <h6>If only</h6>
+            <button class="btn btn-sm btn-warning" (click)="showTitle = false">Show Title</button>
+            <ul *ngIf="showTitle">
+              <li *ngFor="let movie of movies"><i>{{movie.title}}</i></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>If & else</h6>
+            <button class="btn btn-sm btn-warning" (click)="titleName = false; changeName()">Movies
+              {{buttonName}}</button>
+            <ul *ngIf="titleName; else elseBlock">
+              <li *ngFor="let movie of movies"><i>{{movie.title}}</i></li>
+            </ul>
+            <ng-template #elseBlock>
+              <ul>
+                <li *ngFor="let movie of movies"><i>{{movie.director}}</i></li>
+              </ul>
+            </ng-template>
+          </div>
+          <div class="col">
+            <h6>If & then & else</h6>
+            <button class="btn btn-sm btn-warning" (click)="movieName = false; changeName2()">Movies
+              {{buttonTitle}}</button>
+            <div *ngIf="movieName; then thenBlock else elseBlock2"></div>
+            <ng-template #thenBlock>
+              <ul>
+                <li *ngFor="let movie of movies"><i>{{movie.title}}</i></li>
+              </ul>
+            </ng-template>
+            <ng-template #elseBlock2>
+              <ul>
+                <li *ngFor="let movie of movies"><i>{{movie.director}}</i></li>
+              </ul>
+            </ng-template>
+          </div>
+        </div>
+      </li>
+      <hr>
+      <li>
+        <h4 class="mb-3 border-bottom ">ngSwitch</h4>
+        <div class="row">
+          <div class="col">
+            <div [ngSwitch]="color">
+              <div *ngSwitchCase="'red'" [ngClass]="'bgred'">You picked red color</div>
+              <div *ngSwitchCase="'green'" [ngClass]="'bggreen'">You picked green color</div>
+              <div *ngSwitchCase="'blue'" [ngClass]="'bgblue'">You picked blue color</div>
+              <div *ngSwitchDefault [ngClass]="'bgyellow'">Picked Again!</div>
+            </div>
+          </div>
+          <div class="col">
+            <select [(ngModel)]="selectOption">
+              <option value="BMW">BMW</option>
+              <option value="Volvo">Volvo</option>
+              <option value="Audi">Audi</option>
+            </select>
+            <div [ngSwitch]="selectOption">
+              <div *ngSwitchCase="'BMW'">You have BMW</div>
+              <div *ngSwitchCase="'Volvo'">You have Volvo</div>
+              <div *ngSwitchCase="'Audi'">You have Audi</div>
+              <div *ngSwitchDefault>You have Tata Nano</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-body">
+              Input string : <input type='text' [(ngModel)]="num" />
+
+              <div [ngSwitch]="num">
+                <div *ngSwitchCase="'1'">One</div>
+                <div *ngSwitchCase="'2'">Two</div>
+                <div *ngSwitchCase="'3'">Three</div>
+                <div *ngSwitchCase="'4'">Four</div>
+                <div *ngSwitchCase="'5'">Five</div>
+                <div *ngSwitchDefault>This is Default</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <hr>
+      <li>
+        <h4 class="mb-3 border-bottom ">ngClass</h4>
+        <div class="row">
+          <div class="col">
+            <h4 class="text-success">Angular ngClass</h4>
+            <h4 [class.text-danger]="hasError">Angular ngClass</h4>
+          </div>
+          <div class="col">
+            <h4 [ngClass]="messageClass">Angular ngClass</h4>
+          </div>
+          <div class="col">
+            <h6 [ngClass]="['text-success' , 'text-special']">ngClass with array</h6>
+          </div>
+          <div class="col">
+            <h6 [ngClass]="{'text-danger': true, 'text-special': true}">ngClass with object</h6>
+          </div>
+        </div>
+      </li>
+      <hr>
+      <li>
+        <h4 class="mb-3 border-bottom ">ngStyle</h4>
+        <div class="row">
+          <div class="col">
+            <h6 [style.color]="'orange'">change color without ngStyle </h6>
+          </div>
+          <div class="col">
+            <h6 [style.color]="color">change color without ngStyle </h6>
+          </div>
+          <div class="col">
+            <input type="text" [(ngModel)]="color" />
+            <h6 [ngStyle]="{'color' : color}">Angular ngStyle</h6>
+          </div>
+          <div class="col">
+           <h5 [ngStyle]="{'background-color': status? 'red' : 'green', 'color': 'white'}" class="p-2">Change color, when status is true.</h5>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<!-- <h5 class="text-primary my-3">Child Component : <span class="text-secondary"><i>Current Count is  {{ count }}</i></span></h5>
+<small>This event trigger from child compoent inc & dec : </small>
+<button class="btn btn-danger px-3 btn-sm mr-3" (click)="decrment()">-</button>
+<button class="btn btn-danger px-3 btn-sm" (click)="increment()">+</button> -->
+
+<div class="bg-success py-4 rounded text-center">
+  <h4 class="text-white h5" *ngIf="!productSelect">Please Select Product</h4>
+  <h4 class="text-white h5" *ngIf="productSelect">{{data}} Seleted</h4>
+  <button class="btn btn-primary btn-sm" (click)="cardAdd()">Add To Cart</button>
+</div>

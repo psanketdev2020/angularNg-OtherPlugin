@@ -1,0 +1,68 @@
+<section>
+  <div class="container">
+    <div *ngIf="leftEnd">
+      <button (click)="scrollLeft()" class="left">
+        < </button>
+    </div>
+
+
+    <div #widgetsContent class="middle">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Number</th>
+            <th>Gender</th>
+            <th>Profile</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr>
+            <th>Sanket</th>
+            <th>Patil</th>
+            <th>IN</th>
+            <th>25</th>
+            <th>12345</th>
+            <th>M</th>
+            <th>Front End Developer</th>
+          </tr>
+          <tr>
+            <th>John</th>
+            <th>Dep</th>
+            <th>US</th>
+            <th>26</th>
+            <th>22334</th>
+            <th>M</th>
+            <th>Software Developer</th>
+          </tr>
+          <tr>
+            <th>Reshma</th>
+            <th>Shah</th>
+            <th>IN</th>
+            <th>20</th>
+            <th>00998</th>
+            <th>F</th>
+            <th>Software Engineer</th>
+          </tr>
+          <tr>
+            <th>John</th>
+            <th>Dep</th>
+            <th>US</th>
+            <th>26</th>
+            <th>22334</th>
+            <th>M</th>
+            <th>Software Developer</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="rightEnd">
+      <button (click)="scrollRight()">></button>
+    </div>
+
+  </div>
+</section>

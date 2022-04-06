@@ -1,0 +1,94 @@
+<section class="pb-4">
+  <div class="container">
+    <h3 class="my-3 text-dark">Pipes</h3>
+    <div class="pipe mb-3">
+      <h5 class="mb-1">DatePipe</h5>
+      <p>Date Without Pipe: <b>{{ date }}</b></p>
+      <p>Date With Pipe: <b>{{ date | date }}</b></p>
+      <p>Date With Pipe: <b>{{ date | date | uppercase }}</b></p>
+      <p>Date With Pipe & 'medium' argument: <b>{{ date | date : 'medium' }}</b></p>
+      <p>Date With Pipe & 'short' argument: <b>{{ date | date : 'short' }}</b></p>
+      <p>Date With Pipe & 'fullDate' argument: <b>{{ date | date : 'fullDate' }}</b></p>
+      <p>Date With Pipe & 'longDate' argument: <b>{{ date | date : 'longDate' }}</b></p>
+      <p>Date With Pipe & 'mediumDate' argument: <b>{{ date | date : 'mediumDate' }}</b></p>
+      <p>Date With Pipe & 'shortDate' argument: <b>{{ date | date : 'shortDate' }}</b></p>
+      <p>Date With Pipe & 'mediumTime' argument: <b>{{ date | date : 'mediumTime' }}</b></p>
+      <p>Date With Pipe & 'shortTime' argument: <b>{{ date | date : 'shortTime' }}</b></p>
+      <p>Date with Pipes <b>{{date | date:'dd/MM/yy HH:mm'}}</b></p>
+    </div>
+    <div class="pipe mb-3">
+      <h5 class="mb-1">UpperCasePipe & LowerCasePipe</h5>
+      <p>Without pipe: <b>{{ title }}</b></p>
+      <p>Using uppercase pipe: <b>{{ title | uppercase }}</b></p>
+      <p>Using lowercase pipe: <b>{{ title | lowercase }}</b></p>
+    </div>
+    <div class="pipe mb-3">
+      <h5 class="mb-1">SlicePipe</h5>
+      <p>Without Pipe: <b>{{ msg }}</b></p>
+      <p>With Slice Pipe: <b>{{msg | slice:5:10}}</b></p>
+      <p>With Slice Pipe: <b>{{msg | slice:0:10}}</b></p>
+      <p>With Slice Pipe: <b>{{msg | slice:-8}}</b></p>
+    </div>
+    <div class="pipe mb-3">
+      <h5 class="mb-1">DecimalPipe / NumberPipe</h5>
+      <p>Without Pipe: <b>{{num}}</b></p>
+      <p>With Pipe: <b>{{num | number }}</b></p>
+      <p>With Pipe: <b>{{num | number : '3.1-2'}}</b></p>
+      <p>With Pipe: <b>{{num | number : '7.1-5'}}</b></p>
+    </div>
+    <div class="pipe mb-3">
+      <h5 class="mb-1">PercentePipe</h5>
+      <p>Without Pipe: <b>{{per}}</b></p>
+      <p>With Pipe: <b>{{per | percent }}</b></p>
+      <p>With Pipe: <b>{{per | percent:'2.1-2'}}</b></p>
+    </div>
+    <div class="pipe mb-3">
+      <h5 class="mb-1">CurrencyPipe</h5>
+      <p>Without Pipe: <b>{{cur}}</b></p>
+      <p>Without Pipe: <b>{{cur | currency}}</b></p>
+      <p>Without Pipe: <b>{{cur | currency : 'INR' :true: '2.2-2'}}</b></p>
+    </div>
+    <h3 class="my-3 text-dark">KeyValue Pipe</h3>
+    <div class="row">
+      <ul class="col">
+        <h6>Default Order</h6>
+        <li *ngFor="let item of obj | keyvalue">
+          {{item.key}} => {{item.value}}
+        </li>
+      </ul>
+      <ul class="col">
+        <h6>Default Order with passing arguments in pipe</h6>
+        <li *ngFor="let item of obj | keyvalue : orderOriginal">
+          {{item.key}} => {{item.value}}
+        </li>
+      </ul>
+      <ul class="col">
+        <h6>Ascending Order</h6>
+        <li *ngFor="let item of obj | keyvalue : orderOriginalAsc">
+          {{item.key}} => {{item.value}}
+        </li>
+      </ul>
+      <ul class="col">
+        <h6>Decending Order</h6>
+        <li *ngFor="let item of obj | keyvalue : orderOriginalDsc">
+          {{item.key}} => {{item.value}}
+        </li>
+      </ul>
+    </div>
+    <h3 class="my-3 text-dark">Custome Pipe</h3>
+    <p>Multiplier: {{2 | Multiplier : '100'}}</p>
+    <!-- //if i am pass the string value the in pipes conver into number -->
+    <h6>Fahrenheit to Celsius </h6>
+    <div class="form-group">
+      <label>Fahrenheit: </label>
+      <input type="text" class="form-control w-50" [(ngModel)]="fahrenheit" />
+    </div>
+    <p class="mb-3">Celsius: {{fahrenheit | tempConverter : 'C'}} <sup>o</sup>C</p>
+    <h6>Celsius to Fahrenheit</h6>
+    <div class="form-group">
+      <label>Celsius: </label>
+      <input type="text" class="form-control w-50" [(ngModel)]="celsius" />
+    </div>
+    <p>Fahrenheit: {{celsius | tempConverter : 'F'}} F</p>
+  </div>
+</section>

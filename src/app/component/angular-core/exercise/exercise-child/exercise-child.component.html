@@ -1,0 +1,7 @@
+<div class="card px-3 py-4">
+  <div class="form-group">
+    <input type="text" #inputVal class="form-control" placeholder="{{palceholderText}}">
+  </div>
+  <button class="btn btn-success w-25 mb-2" (click)="addUser(inputVal)">Create</button>
+  <span class="d-block" *ngIf="count">Total Count: <strong>{{count}}</strong></span>
+</div>

@@ -1,0 +1,37 @@
+<section class="pb-4">
+  <div class="container">
+    <h3 class="my-3">Events</h3>
+    <div class="row">
+      <div class="col-4">
+        <button class="btn btn-danger btn-sm" (click)="showAlert()"> Show Alert</button>
+      </div>
+
+      <div class="col-4">
+        <label>Name:</label>
+        <input type="text" (keyup)="addUsername($event)" class="form-control w-100 mb-3">
+        <h4>{{ name }}</h4>
+      </div>
+
+      <div class="col-4">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-danger btn-sm px-3" (click)="decCounter()">-</button>
+          <h2> {{ counter }}</h2>
+          <button class="btn btn-warning btn-sm px-3" (click)="incCounter()">+</button>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-6">
+        <label>Username:</label>
+        <input type="text" class="form-control" [(ngModel)]="username">
+        <h3>{{ username }}</h3>
+        <button class="btn btn-info" [disabled]="username === ''" (click)="username = ''">Add Username</button>
+      </div>
+      <div class="col-6">
+        <div class="colDiv" #colDiv (mouseenter)="fillBgColor($event, colDiv)" (mouseleave)="removeBgColor($event, colDiv)"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+.list-data {
+  padding: 10px 0;
+}
+
+.list-data li { background: #f5f5f5;}
+.list-data li h5 { font-size: 14px; font-weight: 500; color: #323232; }
